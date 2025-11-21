@@ -1,0 +1,52 @@
+﻿<Window x:Class="CMCS.Pages.VerifyReportPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CMCS.Pages"
+        mc:Ignorable="d"
+        Title="VerifyReportPage" Height="450" Width="800">
+    <Grid Background="{StaticResource Brush.Secondary}">
+        <Border Background="{StaticResource Brush.Primary}" Height="80" VerticalAlignment="Top">
+            <TextBlock Text="Verify Claims Report" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26" FontWeight="Bold" Foreground="White"/>
+        </Border>
+
+        <StackPanel Margin="40,100,40,40">
+            <Border Style="{StaticResource Card}" Margin="0,0,0,20">
+                <StackPanel>
+                    <TextBlock Text="Report Summary" FontSize="20" FontWeight="Bold" Foreground="White"/>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                        <TextBlock Text="Total Claims: " FontSize="16" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock x:Name="txtTotalClaims" FontSize="16" FontWeight="Bold"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Approved Claims: " FontSize="16" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock x:Name="txtApproved" FontSize="16" FontWeight="Bold" Foreground="Green"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Rejected Claims: " FontSize="16" Margin="0,0,10,0" Foreground="White"/>
+                        <TextBlock x:Name="txtRejected" FontSize="16" FontWeight="Bold" Foreground="Red"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+
+            <Button x:Name="btnExport" Content="Generate Report (PDF)" Height="45" Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" Background="{StaticResource Brush.Accent}" Foreground="White" FontWeight="Bold" Click="btnExport_Click"/>
+
+            <DataGrid x:Name="ReportGrid" AutoGenerateColumns="False" RowHeight="50" IsReadOnly="True" AlternatingRowBackground="{StaticResource Brush.Accent}" BorderBrush="{StaticResource Brush.Primary}" BorderThickness="2">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Claim ID" Binding="{Binding ClaimId}" Width="80"/>
+                    <DataGridTextColumn Header="Lecture" Binding="{Binding LectureName}" Width="*"/>
+                    <DataGridTextColumn Header="Module" Binding="{Binding ModuleName}" Width="*"/>
+                    <DataGridTextColumn Header="File Path" Binding="{Binding FilePath}" Width="*"/>
+                    <DataGridTextColumn Header="Total (R)" Binding="{Binding TotalAmount}" Width="100"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding status}" Width="100"/>
+                    <DataGridTextColumn Header="Date Submitted" Binding="{Binding  DateSubmitted}" Width="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>

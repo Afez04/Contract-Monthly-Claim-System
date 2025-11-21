@@ -1,0 +1,78 @@
+﻿<Window x:Class="CMCS.Pages.HRDashoard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:CMCS.Pages"
+        mc:Ignorable="d"
+        Title="HRDashoard" Height="600" Width="900" Background="{StaticResource Brush.Surface}" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Border Background="{StaticResource Brush.Primary}" Padding="16">
+            <TextBlock Text="HR Dashboard" FontSize="26" FontWeight="Bold" Foreground="White"/>
+        </Border>
+
+        <Grid Margin="30, 80, 30, 30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="0" Height="70" Style="{StaticResource PrimaryButton}" Background="{StaticResource Brush.Accent}" Click="ManageLectures_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="AccountTie" Width="28" Height="28" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBlock Text="Manage Lectures" FontSize="18" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="1" Height="70" Style="{StaticResource PrimaryButton}" Background="{StaticResource Brush.Accent}" Click="ManageCoordinator_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="AccountSupervisor" Width="28" Height="28" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBlock Text="Manage Coordinators" FontSize="18" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="0" Height="70" Style="{StaticResource PrimaryButton}" Background="{StaticResource Brush.Accent}" Click="manageManagers_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="AccountGroup" Width="28" Height="28" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBlock Text="Manage Managers" FontSize="18" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="1" Height="70" Style="{StaticResource SecondaryButton}" Background="{StaticResource Brush.Accent}" Click="GenerateReport_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="FileDocument" Width="28" Height="28" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBlock Text="Generate Report (PDF / Excel" FontSize="18" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="2" Height="70" Style="{StaticResource PrimaryButton}" Background="{StaticResource Brush.Accent}" Click="ClaimsOverview_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="ChartBar" Width="28" Height="28" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBlock Text="Claim Overview" FontSize="18" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="1" Grid.Row="2" Height="70" Style="{StaticResource PrimaryButton}" Background="{StaticResource Brush.Accent}" Click="Settings_Click">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Cog" Width="28" Height="28" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBlock Text="System Settings" FontSize="18" Foreground="White"/>
+                </StackPanel>
+            </Button>
+
+            <Button Grid.Column="0" Grid.Row="3" Height="70" Style="{StaticResource DestructiveButton}" Background="{StaticResource Brush.Accent}" Click="Logout_Click" Grid.ColumnSpan="2" Margin="220,10,210,0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Logout" Width="28" Height="28" Foreground="White" Margin="0,0,10,0"/>
+                    <TextBlock Text="Logout" FontSize="18" Foreground="White"/>
+                </StackPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

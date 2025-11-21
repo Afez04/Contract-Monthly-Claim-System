@@ -1,0 +1,46 @@
+﻿<Window x:Class="CMCS.Pages.ApproveOrRejectPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CMCS.Pages"
+        mc:Ignorable="d"
+        Title="ApproveOrRejectPage" Height="450" Width="800">
+    <Grid Background="{StaticResource Brush.Secondary}">
+        <Border Background="{StaticResource Brush.Primary}" Height="80" VerticalAlignment="Top">
+            <TextBlock Text="Processed Claims" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26" FontWeight="Bold" Foreground="White"/>
+        </Border>
+
+        <DataGrid x:Name="ProcessedClaimsGrid" AutoGenerateColumns="False" Margin="40,100,40,40" RowHeight="50" IsReadOnly="True" AlternatingRowBackground="{StaticResource Brush.Accent}" BorderBrush="{StaticResource Brush.Primary}" BorderThickness="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Claim ID" Binding="{Binding ClaimId}" Width="80"/>
+                <DataGridTextColumn Header="Lecture" Binding="{Binding LectureName}" Width="*"/>
+                <DataGridTextColumn Header="Module Name" Binding="{Binding ModuleName}" Width="*"/>
+                <DataGridTextColumn Header="Module Code" Binding="{Binding ModuleCode}" Width="80"/>
+                <DataGridTextColumn Header="Hours" Binding="{Binding HoursWorked}" Width="80"/>
+                <DataGridTextColumn Header="Total" Binding="{Binding TotalAmount}" Width="100"/>
+
+                <DataGridTemplateColumn Header="Status" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding status}" FontWeight="Bold" HorizontalAlignment="Center">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding status}" Value="Approved">
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding status}" Value="Rejected">
+                                                <Setter Property="Foreground" Value="Red"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                            </TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
