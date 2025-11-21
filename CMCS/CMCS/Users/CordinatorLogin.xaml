@@ -1,0 +1,34 @@
+﻿<Window x:Class="CMCS.Users.CordinatorLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CMCS.Users"
+        mc:Ignorable="d"
+        Title="CordinatorLogin" Height="600" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="{StaticResource Brush.Primary}" Opacity="0.95">
+    <Grid>
+        <Ellipse Width="350" Height="350" Fill="{StaticResource Brush.Secondary}" Opacity="0.15" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
+        <Border Background="{StaticResource Brush.Secondary}" CornerRadius="20" Padding="40" Width="420" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="{StaticResource Brush.Primary}" BorderThickness="2">
+            <StackPanel HorizontalAlignment="Center">
+                <TextBlock Text="Cordinator Login" FontSize="28" FontWeight="Bold" Foreground="{StaticResource Brush.Primary}" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Username" FontWeight="Bold" Foreground="{StaticResource Brush.Primary}" Margin="0,10,0,5"/>
+                <TextBox x:Name="txtUsername" Width="300" Style="{StaticResource Input}" Height="40"/>
+
+                <TextBlock Text="Password" FontWeight="Bold" Foreground="{StaticResource Brush.Primary}" Margin="0,10,0,5"/>
+                <PasswordBox x:Name="txtPassword" Width="300" BorderBrush="{StaticResource Brush.Secondary}" BorderThickness="1.2" Height="40"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <Button Content="Login" Style="{StaticResource PrimaryButton}" Width="120" Height="40" Margin="0,0,10,0" Click="Coordinator_Click"/>
+                    <Button Content="Back" Style="{StaticResource SecondaryButton}" Width="120" Height="40" Click=" Back_Click"/>
+                </StackPanel>
+                <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Run Text="Don't have an account?" Foreground="White"/>
+                <Run Text="Register" Foreground="Blue" TextDecorations="Underline" Cursor="Hand" 
+                    MouseLeftButtonDown="RegisterText_MouseLeftButtonDown"/>
+                </TextBlock>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
